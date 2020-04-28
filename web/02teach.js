@@ -1,5 +1,5 @@
 function click() { 
-    document.getElementById("click").innerHTML = "Clicked!";
+    document.getElementById("div3").innerHTML = "Clicked!";
 }
 
 function changeColor() { 
