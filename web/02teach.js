@@ -1,4 +1,4 @@
-function click() { 
+function clickMe() { 
     //var text = "Clicked!";
     //document.getElementById("clickText").innerHTML = text;
     alert("Clicked!");
