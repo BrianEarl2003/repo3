@@ -1,0 +1,8 @@
+.divs {
+    background-color: lightgrey;
+    font-size: 22px;
+}
+
+.divs:hover {
+    font-weight: bold;
+}
