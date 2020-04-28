@@ -1,6 +1,6 @@
 function click() { 
     var text = "Clicked!";
-    document.getElementById("clickText").innerHTML = text;
+    document.getElementById("div3").innerHTML = text;
 }
 
 function changeColor() { 
