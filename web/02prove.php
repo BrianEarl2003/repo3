@@ -24,7 +24,7 @@
     </header>
     <div id="clock"><?php
       $t=time();
-      echo(date("d-m-Y h:i:s",$t));
+      echo(date("d-m-Y g:i:s a (e)",$t));
     ?></div>
     <h1 id="header1">Favorite Combos</h1>
     
