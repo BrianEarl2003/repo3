@@ -56,10 +56,9 @@ body {
     background-color: black;
 }
 
-/*#combo1 {
-    display: grid;
-    grid-template-columns: auto auto auto;
-}*/
+#clock {
+    font: rgb(180, 45, 45);
+}
 
 .card {
     width: 30%;

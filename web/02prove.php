@@ -18,11 +18,11 @@
         <img id="WMlogo" src="https://logodix.com/logo/2086275.png" alt="WM Logo">
       </div>
       <ul id="menuBar">
-        <li class="mb"><a href="02prove.html">Home</a></li>
-        <li class="mb"><a href="02prove_2.html">Index</a></li>
+        <li class="mb"><a href="02prove.php">Home</a></li>
+        <li class="mb"><a href="02prove_2.php">Index</a></li>
       </ul> <!-- end menuBar -->
     </header>
-    <div><?php
+    <div id="clock"><?php
       $t=time();
       echo(date("Y-m-d H:i:s",$t));
     ?></div>
