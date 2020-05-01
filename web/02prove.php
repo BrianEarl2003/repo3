@@ -22,10 +22,10 @@
         <li class="mb"><a href="02prove_2.html">Index</a></li>
       </ul> <!-- end menuBar -->
     </header>
-    <?php
+    <div><?php
       $t=time();
       echo(date("Y-m-d H:i:s",$t));
-    ?>
+    ?></div>
     <h1 id="header1">Favorite Combos</h1>
     
     <div id="combo1">
