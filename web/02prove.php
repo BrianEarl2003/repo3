@@ -22,12 +22,10 @@
         <li class="mb"><a href="02prove_2.html">Index</a></li>
       </ul> <!-- end menuBar -->
     </header>
-
-    <div id="timestamp"><?php
-      date_default_timezone_set('YOUR TIMEZONE');
-      echo $timestamp = date('H:i:s');
-  ?></div>
-
+    <?php
+      $t=time();
+      echo(date("Y-m-d H:i:s",$t));
+    ?>
     <h1 id="header1">Favorite Combos</h1>
     
     <div id="combo1">
