@@ -116,6 +116,12 @@ A box of 25 Blue and Purple Twirly Swirly Macarons<br> comes with five filling f
             <input type="submit" value="Add to Shopping Cart">
           </form>
         </div>
+        <?php
+        $_Session[‘hQuantity’] = $hQuantity
+        $_Session[‘cQuantity’] = $cQuantity
+        $_Session[‘bQuantity’] = $bQuantity
+        $_Session[‘tQuantity’] = $tQuantity
+        ?>
         <!--end of product list-->
         <hr>
         <!--footer-->
