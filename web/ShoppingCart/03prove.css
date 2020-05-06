@@ -1,0 +1,145 @@
+.pil { /*products*/
+    border-radius: 10%;
+    float: left;
+    height: 13%;
+    width: 13%;
+}
+
+.pir {
+    border-radius: 10%;
+    float: right;
+    height: 17%;
+    width: 17%;
+}
+
+.description {
+    font-family: 'Comfortaa', cursive;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.form {
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+}
+
+#hm {
+    background-color: lightgreen;
+}
+
+#dbcm {
+    background-color: lavender;
+}
+
+#bhm {
+    background-color: lightcyan;
+}
+
+#tsm {
+    background-color: lightskyblue;
+}
+/*Homepage*/
+#WMlogo {
+    width: auto;
+    height: 100%;
+}
+
+#logo {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+#slogan {
+    /*margin-top: -40px;*/
+    font-family: 'Satisfy', cursive;
+    font-size: 30px;
+    color: purple;
+    text-align: center;
+}
+
+#menuBar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: purple;
+}
+
+li {
+    float: left;
+}
+
+.mb a {
+    display: block;
+    color: white;
+    font-family: 'Comfortaa', cursive;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.mb a:hover:not(.active) {
+    background-color: gray;
+}
+
+.active {
+    background-color: plum;
+    color: black;
+}
+
+.product {
+    font-family: 'Comfortaa', cursive;
+    font-size: 30px;
+    color: purple;
+    text-align: center;
+}
+
+footer p {
+    color: gray;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    float: right;
+}
+
+td {
+    padding: 15px;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    color: gray;
+}
+
+td #au {
+    color: gray;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+#footerLinks {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.fl {
+    display: inline-block;
+    color: gray;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    padding: 10px;
+    text-decoration: underline solid gray;
+}
+
+.f2 {
+    display: inline-block;
+    color: gray;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    padding: 10px;
+}
+
+#ITF {
+    float: right;
+    width: 20%;
+    height: 20%;
+}
+
