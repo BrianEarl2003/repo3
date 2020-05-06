@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
@@ -21,16 +24,16 @@ isfy&display=swap" rel="stylesheet">
     </div>
     <ul id="menuBar">
       <li class="mb"><a href="#header">Home</a></li>
-      <li class="mb"><a class="active" href="03prove_2.html">Products</a></li>
+      <li class="mb"><a class="active" href="browseItems.php">Products</a></li>
       <li class="mb"><a href="#header">Sign in/Join us</a></li>
       <li class="mb"><a href="#header">Locate a Store</a></li>
-      <li class="mb" style="float:right"><a href="03prove.html"><i class="fafa-shopping-cart"></i>
+      <li class="mb" style="float:right"><a href="viewCart.php"><i class="fafa-shopping-cart"></i>
           Shopping Cart</a></li>
     </ul> <!-- end menuBar -->
   </header>
   <!--list of products-->
   <div id="hm">
-    <h1 class="product">
+    <h1 class="product1">
       <img class="pil" src="https://i.pinimg.com/originals/bd/f6/d6/bdf6d6c870edcc9d5f53fc4c843ecb6f.jpg" alt="three macarons">
       <img class="pir" src="https://66.media.tumblr.com/191338ce8b0c1599bc6ce59dfce82275/tumblr_phdjv0drFu1r8jkpuo1_1280.jpg" alt="package of macarons">
       Halloween Macarons</h1>
@@ -41,9 +44,9 @@ isfy&display=swap" rel="stylesheet">
 <span style="color:brown">4 Marshmallow Buttercream with Candybar toppings.
 </span><br>
 </p>
-<form>
+<form class="form">
 Price: $24/box | Quantity:
-<input type="text" name="quantity">
+<input type="text" name="hQuantity" value="<?php echo $hQuantity ?>">
 <input type="submit" value="Add to Shopping Cart">
 </form>
 </div>
@@ -51,7 +54,7 @@ Price: $24/box | Quantity:
 <hr>
 
 <div id="dbcm">
-<h1 class="product">
+<h1 class="product1">
 <img class="pil" src="https://sugargeekshow.com/wp-content/uploads/2019/12/chocolate-macaron-recipe-320x320.jpg.webp" alt="messy chocolate macarons">
 <img class="pir" src="https://madaboutmacarons.com/wp-content/uploads/2014/03/chocolate-macarons-in-treasure-paper-box.jpg" alt="package of chocolate macarons">
 Death by Chocolate Macarons</h1>
@@ -64,9 +67,9 @@ comes with four varieties:
 <span style="color:darkgoldenrod">3 Chocolate Salted Caramel.
 </span><br>
 </p>
-<form>
+<form class="form">
 Price: $24/box | Quantity:
-<input type="text" name="quantity">
+<input type="text" name="cQuantity" value="<?php echo $cQuantity ?>">
 <input type="submit" value="Add to Shopping Cart">
 </form>
 </div>
@@ -74,7 +77,7 @@ Price: $24/box | Quantity:
 <hr>
 
 <div id="bhm">
-<h1 class="product">
+<h1 class="product1">
 <img class="pil" src="https://devilsfoodkitchen.com/wp-content/uploads/2018/02/BLEEDING_HEART_MACARON_54-600x476.jpg" alt="one heart macaron">
 <img class="pir" src="https://static.wixstatic.com/media/75d275_d5358b43e7ff444f849473b0a13619e5~mv2.jpg/v1/fill/w_1160,h_840,al_c,q_85,usm_0.66_1.00_0.01/75d275_d5358b43e7ff444f849473b0a13619e5~mv2.jpg" alt="many heart macarons">
 Birthday Heart Macarons</h1>
@@ -86,9 +89,9 @@ Single Birthday Heart Macarons made from:<br>
 <span style="color:gold">filled with Birthday Cake and Funfetti Frosting.
 </span><br>
 </p>
-<form>
+<form class="form">
 Price: $2.50/macaron | Quantity:
-<input type="text" name="quantity">
+<input type="text" name="bQuantity" value="<?php echo $bQuantity ?>">
 <input type="submit" value="Add to Shopping Cart">
 </form>
 </div>
@@ -96,7 +99,7 @@ Price: $2.50/macaron | Quantity:
 <hr>
 
 <div id="tsm">
-<h1 class="product">
+<h1 class="product1">
 <img class="pil" src="http://www.makermegramon.com/wp-content/uploads/2017/07/74980_647892192016674_6038547037082257600_n-1-300x300.jpg" alt="side of swirl macaron">
 <img class="pir" src="http://www.makermegramon.com/wp-content/uploads/2017/07/10409325_647892222016671_204817099117904864_n-1-300x300.jpg" alt="package of swirl macarons">
 Twirly Swirly Macarons</h1>
@@ -107,9 +110,9 @@ A box of 25 Blue and Purple Twirly Swirly Macarons<br> comes with five filling f
             <span style="color:green">5 Chocolate Mint and 5 Pistachio.
             </span><br>
           </p>
-          <form>
+          <form class="form">
             Price: $50/box | Quantity:
-            <input type="text" name="quantity">
+            <input type="text" name="tQuantity" value="<?php echo $tQuantity ?>">
             <input type="submit" value="Add to Shopping Cart">
           </form>
         </div>

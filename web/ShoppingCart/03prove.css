@@ -26,6 +26,12 @@
     text-align: center;
 }
 
+/*#form {
+    font-size: 16px;
+    background-color: lavender;
+    text-align: left;
+}*/
+
 #hm {
     background-color: lightgreen;
 }
@@ -90,13 +96,59 @@ li {
     color: black;
 }
 
-.product {
+.product1 {
     font-family: 'Comfortaa', cursive;
     font-size: 30px;
     color: purple;
     text-align: center;
 }
+/*order form*/
 
+.product {
+    font-family: 'Comfortaa', cursive;
+    font-size: 16px;
+    color: purple;
+    text-align: left;
+}
+
+.inputError {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 30px;
+    align-items: center;
+}
+
+#addressDiv {
+    grid-template-rows: 60px;
+}
+
+#form {
+    background-color: plum;
+}
+
+#totalDiv {
+    text-align: right;
+    padding-right: 5px;
+}
+
+#buttons {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+}
+
+#orderMessage {
+          margin: 4%;
+          background-color: plum;
+          box-shadow: 8px 8px 15px black;
+          border: solid grey;
+}
+
+.hidden {
+    display: none;
+}
+
+/*footer*/
 footer p {
     color: gray;
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;

@@ -21,15 +21,15 @@ isfy&display=swap" rel="stylesheet">
         </div>
         <ul id="menuBar">
         <li class="mb"><a href="#header">Home</a></li>
-        <li class="mb"><a href="03prove_2.html">Products</a></li>
+        <li class="mb"><a href="browseItems.php">Products</a></li>
         <li class="mb"><a href="#header">Sign in/Join us</a></li>
         <li class="mb"><a href="#header">Locate a Store</a></li>
-        <li class="mb" style="float:right"><a class="active" href="03prove.html">
+        <li class="mb" style="float:right"><a class="active" href="viewCart.php">
             <i class="fa fa-shopping-cart"></i>Shopping Cart</a></li>
       </ul> <!-- end menuBar -->
     </header>
     <hr><!--start Order Form-->
-    <form id="#form" onreset="clr()" onsubmit="return false" id="OF" name="orderForm"
+    <form id="form" onreset="clr()" onsubmit="return false" id="OF" name="orderForm"
           class="product" action="">
       <fieldset>
         <legend>Order Form</legend>
