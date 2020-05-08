@@ -13,7 +13,7 @@ isfy&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="03prove.css">
   </head>
 
-  <body onload="focusFirstName()">
+  <body onload="focusStreetAddress()">
     <!--webpage header-->
     <header>
         <div id="logo"><img id="WMlogo" src="https://www.logolynx.com/images/logolynx/s_2f/2f187fa92e29505d7654144fb12b6068.png" alt="WM Logo">
@@ -24,84 +24,47 @@ isfy&display=swap" rel="stylesheet">
         <li class="mb"><a href="browseItems.php">Products</a></li>
         <li class="mb"><a href="#header">Sign in/Join us</a></li>
         <li class="mb"><a href="#header">Locate a Store</a></li>
-        <li class="mb" style="float:right"><a class="active" href="viewCart.php">
+        <li class="mb" style="float:right"><a href="viewCart.php">
             <i class="fa fa-shopping-cart"></i>Shopping Cart</a></li>
       </ul> <!-- end menuBar -->
     </header>
     <hr><!--start Order Form-->
-    <form id="form" onreset="clr()" onsubmit="return false" id="OF" name="orderForm"
-          class="product" action="">
+    <form id="form" onreset="clr()" onsubmit="return validateForm()" id="OF" name="orderForm"
+          class="product" action="confirmationPage.php" method="POST">
       <fieldset>
         <legend>Order Form</legend>
-        First Name<br>
+        Street Address<br>
         <div class="inputError">
-          <input onInput="this.innerHTML = filledFirstName()"
-                 id="firstName" type="text" name="first_name">
-          <p id="firstNameP" class="message"></p>
+          <input onInput="this.innerHTML = filledStreetAddress()"
+                 id="streetAddress" type="text" name="street_address">
+          <p id="streetAddressP" class="message"></p>
         </div>
-        Last Name<br>
+        City<br>
         <div class="inputError">
-          <input onInput="this.innerHTML = filledLastName()"
-                 id="lastName" type="text" name="last_name">
-          <p id="lastNameP" class="message"></p>
+          <input onInput="this.innerHTML = filledCity()"
+                 id="city" type="text" name="city">
+          <p id="cityP" class="message"></p>
         </div>
-        Address<br>
+        State<br>
         <div class="inputError" id="addressDiv">
-          <textarea rows="3" cols="40" onInput="filledAddress()"
-                    id="addressField" name="address"></textarea>
-          <p id="addressP" class="message"></p>
+          <input onInput="filledState()"
+                    id="state" name="state">
+          <p id="stateP" class="message"></p>
         </div>
-        Phone Number<br>
+        Zip<br>
         <div class="inputError">
-        <input onInput="this.innerHTML = validatePhoneNumber()"
-               id="phoneNumber" type="text" name="phone">
-        <p id="phoneP" class="message"></p>
-        </div>
-        <hr>
-        Macaron order:<br>
-        <input onclick="total()" type="checkbox" name="item_0" value="halloween">
-        Halloween - $24<br>
-        <input onclick="total()" type="checkbox" name="item_1"
-               value="deathByChocolate"> Death By Chocolate - $24<br>
-        <input onclick="total()" type="checkbox" name="item_2" value="birthdayHeart">
-        Birthday Heart - $2.50<br>
-        <input onclick="total()" type="checkbox" name="item_3" value="twirlySwirly">
-        Twirly Swirly - $50
-        <div class="inputError">
-        <div id="totalDiv">Total:</div>
-        <p id="totalP" name="total" class="message"></p>
+        <input onInput="this.innerHTML = validateZip()"
+               id="zip" type="text" name="zip">
+        <p id="zipP" class="message"></p>
         </div>
         <hr>
-        Credit Card:<br><br>
-        <div class="inputError">
-          <div>
-            <input onchange="validateCardName()" type="radio" name="card"
-                   id="visa" value="visa"> visa<br>
-            <input onchange="validateCardName()" type="radio" name="card"
-                   id="mastercard" value="mastercard"> mastercard<br>
-            <input onchange="validateCardName()" type="radio" name="card"
-                   id="americanExpress" value="american express"> american express
-          </div>
-          <p id="cardNameP" class="message"></p>
-        </div><br>
-        <hr>
-        Credit Card Number<br>
-        <div class="inputError">
-        <input onInput="validateCardNumber()"
-               id="creditCard" type="text" name="credit_card">
-        <p id="creditCardP" class="message"></p>
-        </div>
-        Credit Card Expiration Date<br>
-        <div class="inputError">
-        <input onInput="validateExpDate()"
-               id="expDate" type="text" name="exp_date">
-        <p id="expDateP" class="message"></p>
-        </div>
         <div class="inputError">
           <div id="buttons">
-            <button id="resetButton" type="reset">reset</button>
-            <input onclick="validateForm()" id="submitButton"
-                   value="validate" name="validate" type="submit"/>
+            <button id="resetButton" type="reset">Reset</button>
+            <button onclick="location.href='viewCart.php';"
+                    id="goToCart" type="button">View Cart</button>
+            <input onclick="validateForm();" id="submitButton"
+                   value="Purchase" name="validate" type="submit"/>
           </div>
           <p id="validateP" class="message"></p>
         </div>

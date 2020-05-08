@@ -1,36 +1,12 @@
 <?php
 session_start();
+$hQuantity = 0;
+$cQuantity = 0;
+$bQuantity = 0;
+$tQuantity = 0;
+include 'header.php';
 ?>
-<!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8"/>
-    <title>Wasatch Macarons Products Page</title>
-    <!--for shopping cart icon-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-aw\
-esome/4.7.0/css/font-awesome.min.css">
-    <!--for google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Creepster|Sat\
-isfy&display=swap" rel="stylesheet">
-    <!--CSS modifications-->
-    <link rel="stylesheet" type="text/css" href="03prove.css">
-</head>
 
-<body>
-  <!--webpage header-->
-  <header>
-    <div id="logo"><img id="WMlogo" src="https://www.logolynx.com/images/logolynx/s_2f/2f187fa92e29505d7654144fb12b6068.png" alt="WM Logo">
-    <h1 id="slogan">Be a macaron in a cookie cutter world.</h1>
-    </div>
-    <ul id="menuBar">
-      <li class="mb"><a href="#header">Home</a></li>
-      <li class="mb"><a class="active" href="browseItems.php">Products</a></li>
-      <li class="mb"><a href="#header">Sign in/Join us</a></li>
-      <li class="mb"><a href="#header">Locate a Store</a></li>
-      <li class="mb" style="float:right"><a href="viewCart.php"><i class="fafa-shopping-cart"></i>
-          Shopping Cart</a></li>
-    </ul> <!-- end menuBar -->
-  </header>
   <!--list of products-->
   <div id="hm">
     <h1 class="product1">
@@ -44,11 +20,11 @@ isfy&display=swap" rel="stylesheet">
 <span style="color:brown">4 Marshmallow Buttercream with Candybar toppings.
 </span><br>
 </p>
-<form class="form">
+<form class="form" action="viewCart.php" method="POST">
 Price: $24/box | Quantity:
 <input type="text" name="hQuantity" value="<?php echo $hQuantity ?>">
-<input type="submit" value="Add to Shopping Cart">
-</form>
+<!--<input type="submit" value="Add to Shopping Cart">-->
+<!--</form>-->
 </div>
 
 <hr>
@@ -67,11 +43,13 @@ comes with four varieties:
 <span style="color:darkgoldenrod">3 Chocolate Salted Caramel.
 </span><br>
 </p>
-<form class="form">
+<div class="form">
+<!--<form class="form" action="viewCart.php" method="POST">-->
 Price: $24/box | Quantity:
 <input type="text" name="cQuantity" value="<?php echo $cQuantity ?>">
-<input type="submit" value="Add to Shopping Cart">
-</form>
+</div>
+<!--<input type="submit" value="Add to Shopping Cart">-->
+<!--</form>-->
 </div>
 
 <hr>
@@ -89,11 +67,13 @@ Single Birthday Heart Macarons made from:<br>
 <span style="color:gold">filled with Birthday Cake and Funfetti Frosting.
 </span><br>
 </p>
-<form class="form">
+<div class="form">
+<!--<form class="form" action="viewCart.php" method="POST">-->
 Price: $2.50/macaron | Quantity:
 <input type="text" name="bQuantity" value="<?php echo $bQuantity ?>">
-<input type="submit" value="Add to Shopping Cart">
-</form>
+</div>
+<!--<input type="submit" value="Add to Shopping Cart">-->
+<!--</form>-->
 </div>
 
 <hr>
@@ -110,49 +90,15 @@ A box of 25 Blue and Purple Twirly Swirly Macarons<br> comes with five filling f
             <span style="color:green">5 Chocolate Mint and 5 Pistachio.
             </span><br>
           </p>
-          <form class="form">
+          <div class="form">
+          <!--<form class="form" action="viewCart.php" method="POST">-->
             Price: $50/box | Quantity:
             <input type="text" name="tQuantity" value="<?php echo $tQuantity ?>">
             <input type="submit" value="Add to Shopping Cart">
+          </div>
           </form>
         </div>
-        <?php
-        $_Session[‘hQuantity’] = $hQuantity
-        $_Session[‘cQuantity’] = $cQuantity
-        $_Session[‘bQuantity’] = $bQuantity
-        $_Session[‘tQuantity’] = $tQuantity
-        ?>
         <!--end of product list-->
         <hr>
-        <!--footer-->
-        <footer>
-          <img id="ITF" src="https://www.pngkey.com/png/full/306-3069107_logos-for-\
-    instagram-twitter-and-facebook-facebook-instagram.png" alt="Instagram Twitter F\
-    acebook">
-          <table>
-            <tr>
-              <td><a id="au" href="#header">ABOUT US</a></td>
-              <td>CONTACT US</td>
-            </tr>
-            <tr>
-              <td>CAREERS</td>
-              <td>ALL LOCATIONS</td>
-            </tr>
-            <tr>
-              <td>SITEMAP</td>
-            </tr>
-          </table>
-          <p>Copyright 2019 Wasatch Macarons</p>
-          <ul id="footerLinks">
-            <li><a class="fl" href="#footer">Accessibility Policy</a></li>
-            <li class="f2">|</li>
-            <li><a class="fl" href="#footer">Privacy</a></li>
-            <li class="f2">|</li>
-            <li><a class="fl" href="#footer">Terms of Use</a></li>
-            <li class="f2">|</li>
-            <li><a class="fl" href="#footer">Compliance</a></li>
-          </ul>
-        </footer>
-      </body>
-    </html>
+       <?php include 'footer.php';?>
     
