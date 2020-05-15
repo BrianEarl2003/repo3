@@ -12,17 +12,51 @@ isfy&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="quotes.css">
   </head>
 
-  <body>
+  <body class="marginLeftRight">
     <!--webpage header-->
-    <header>
+    <hr><header>
     <div class="container bg-dark" id="header">
         Quotable Quotes
     </div>
-    </header>
+    </header><hr>
+
+    <div id="carouselExampleInterval" class="carousel slide img imgCenter" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-interval="10000">
+          <img src="Albert-Einstein (2).jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-md-block bold">
+        <h5>Albert Einstein</h5>
+        <p>The only thing that interferes with my learning is my education.</p>
+      </div>
+        </div>
+        <div class="carousel-item" data-interval="2000">
+          <img src="LincolnAbraham300px (2).jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-md-block bold">
+        <h5>Abraham Lincoln</h5>
+        <p>The best way to get a bad law repealed is to enforce it strictly.</p>
+      </div>
+        </div>
+        <div class="carousel-item">
+          <img src="Mark-Twain-400x565 (2).png" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-md-block bold">
+        <h5>Mark Twain</h5>
+        <p>Get your facts first, then you can distort them as you please.</p>
+      </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div><hr>
     <!--start-->
     <div class="center blue buttonPadding">
         <button type="button" class="btn btn-outline-success">Random Quote</button>
-    </div>
+    </div><hr>
     <form class="center padding green">Quote from Category
       <div class="form-group">
         <select class="form-control" id="exampleFormControlSelect1">
@@ -35,7 +69,7 @@ isfy&display=swap" rel="stylesheet">
         <button type="button" class="btn btn-outline-primary marginTop">List</button>
         <button type="button" class="btn btn-outline-info marginTop">Random from Category</button>
       </div>
-    </form>
+    </form><hr>
 
     <form class="padding center blue">
       <div class="form-group">

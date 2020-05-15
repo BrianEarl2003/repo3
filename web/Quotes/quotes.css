@@ -9,6 +9,8 @@
 
 .center {
     text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
 .green {
@@ -27,9 +29,34 @@
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 10px;
+    padding-top: 10px;
 }
 
 .buttonPadding {
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+.marginLeftRight {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.img {
+    height: 80%;
+    width: 80%;
+}
+
+.imgCenter {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bold {
+    font-weight: bold;
+    color: orange;
+    text-shadow: -1px 1px 0 #000, 
+                          1px 1px 0 #000, 
+                         1px -1px 0 #000, 
+                        -1px -1px 0 #000; 
 }
