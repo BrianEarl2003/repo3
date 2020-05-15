@@ -24,3 +24,5 @@ Insert INTO quote (category_id, quotee, content) VALUES (2, 'Henry Ford', 'Wheth
 Insert INTO quote (category_id, quotee, content) VALUES (3, 'Nephi', 'And my father dwelt in a tent.');
 Insert INTO quote (category_id, quotee, content) VALUES (4, 'Abraham Lincoln', 'The best way to get a bad law repealed is to enforce it strictly.');
 Insert INTO quote (category_id, quotee, content) VALUES (5, 'Albert Einstein', 'The only thing that interferes with my learning is my education.');
+Insert INTO quote (category_id, quotee, content) VALUES (2, 'Michelle Obama', 'When they go low, we go high.');
+Insert INTO quote (category_id, quotee, content) VALUES (4, 'Eleanor Roosevelt', 'No one can make you feel inferior without your consent.');

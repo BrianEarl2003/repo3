@@ -23,25 +23,39 @@ isfy&display=swap" rel="stylesheet">
     <div id="carouselExampleInterval" class="carousel slide img imgCenter" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active" data-interval="10000">
-          <img src="Albert-Einstein (2).jpg" class="d-block w-100" alt="...">
+          <img src="Albert-Einstein (2).jpg" class="d-block w-100" alt="Albert Einstein">
           <div class="carousel-caption d-md-block bold">
-        <h5>Albert Einstein</h5>
-        <p>The only thing that interferes with my learning is my education.</p>
-      </div>
+            <h5>Albert Einstein</h5>
+            <p>The only thing that interferes with my learning is my education.</p>
+          </div>
         </div>
         <div class="carousel-item" data-interval="2000">
-          <img src="LincolnAbraham300px (2).jpg" class="d-block w-100" alt="...">
+          <img src="https://www.lourdes.edu/wp-content/uploads/2018/05/xEleanor-Roosevelt.jpg.pagespeed.ic.lh5etb1YhH.webp" class="d-block w-100" alt="Eleanor Roosevelt">
           <div class="carousel-caption d-md-block bold">
-        <h5>Abraham Lincoln</h5>
-        <p>The best way to get a bad law repealed is to enforce it strictly.</p>
-      </div>
+            <h5>Eleanor Roosevelt</h5>
+            <p>No one can make you feel inferior without your consent.</p>
+          </div>
+        </div>
+        <div class="carousel-item" data-interval="2000">
+          <img src="LincolnAbraham300px (2).jpg" class="d-block w-100" alt="Abraham Lincoln">
+          <div class="carousel-caption d-md-block bold">
+            <h5>Abraham Lincoln</h5>
+            <p>The best way to get a bad law repealed is to enforce it strictly.</p>
+          </div>
+        </div>
+        <div class="carousel-item" data-interval="2000">
+          <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/first-lady-michelle-obama-wayne-pascall.jpg" class="d-block w-100" alt="Michelle Obama">
+          <div class="carousel-caption d-md-block bold">
+            <h5>Michelle Obama</h5>
+            <p>When they go low, we go high.</p>
+          </div>
         </div>
         <div class="carousel-item">
-          <img src="Mark-Twain-400x565 (2).png" class="d-block w-100" alt="...">
+          <img src="Mark-Twain-400x565 (2).png" class="d-block w-100" alt="Mark Twain">
           <div class="carousel-caption d-md-block bold">
-        <h5>Mark Twain</h5>
-        <p>Get your facts first, then you can distort them as you please.</p>
-      </div>
+            <h5>Mark Twain</h5>
+            <p>Get your facts first, then you can distort them as you please.</p>
+          </div>
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
