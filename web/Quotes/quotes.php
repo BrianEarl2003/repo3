@@ -15,12 +15,16 @@ isfy&display=swap" rel="stylesheet">
   <body>
     <!--webpage header-->
     <header>
-       
+    <div class="container bg-dark" id="header">
+        Quotable Quotes
+    </div>
     </header>
-    <hr><!--start-->
-    <form>Random Quote or List from Category<hr>
+    <!--start-->
+    <div class="center blue buttonPadding">
+        <button type="button" class="btn btn-outline-success">Random Quote</button>
+    </div>
+    <form class="center padding green">Quote from Category
       <div class="form-group">
-        <label for="exampleFormControlSelect1">Categories</label>
         <select class="form-control" id="exampleFormControlSelect1">
           <option>Humor</option>
           <option>Inspirational</option>
@@ -28,13 +32,25 @@ isfy&display=swap" rel="stylesheet">
           <option>Historical</option>
           <option>Educational</option>
         </select>
+        <button type="button" class="btn btn-outline-primary marginTop">List</button>
+        <button type="button" class="btn btn-outline-info marginTop">Random from Category</button>
       </div>
     </form>
 
-    <form>
+    <form class="padding center blue">
       <div class="form-group">
-        <label for="exampleFormControlTextarea1">Enter Quote for Submission</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <label for="exampleFormControlTextarea1" class="center">Submit a Quote</label><hr>
+        <label for="exampleFormControlSelect1" class="center">Category</label>
+        <select class="form-control" id="exampleFormControlSelect1">
+          <option>Humor</option>
+          <option>Inspirational</option>
+          <option>Religious</option>
+          <option>Historical</option>
+          <option>Educational</option>
+        </select>
+        <input class="form-control" type="text" placeholder="Quotee">
+        <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Quote" rows="3"></textarea>
+        <button type="button" class="btn btn-outline-secondary marginTop">Submit Quote</button>
       </div>
     </form>
 
