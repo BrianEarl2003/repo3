@@ -103,10 +103,10 @@ isfy&display=swap" rel="stylesheet">
         }
         $db->query('SELECT id, quotee, content FROM quote;');
         
-          if (isset($_POST['randomQ']) && rand(1,7) == $row['id']) {
-          echo '' . $row['quotee'];
+          if (isset($_POST['randomQ']) && rand(1,7) == $db['id']) {
+          echo '' . $db['quotee'];
           echo '<br/>';
-          echo '' . $row['content'];
+          echo '' . $db['content'];
           echo '<br/>';
           }
         
