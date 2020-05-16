@@ -101,11 +101,14 @@ isfy&display=swap" rel="stylesheet">
           echo 'Error!: ' . $ex->getMessage();
           die();
         }
-        foreach ($db->query('SELECT category_name, content FROM category c JOIN quote q ON c.id=q.category_id;') as $row)
+        foreach ($db->query('SELECT id, quotee, content FROM quote;') as $row)
         {
-          echo 'category_name: ' . $row['category_name'];
-          echo ' content: ' . $row['content'];
+          if (isset($_POST['randomQ']) && rand(1,7) == $row['id']) {
+          echo '' . $row['quotee'];
           echo '<br/>';
+          echo '' . $row['content'];
+          echo '<br/>';
+          }
         }
         /*try
         {
