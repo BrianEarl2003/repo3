@@ -19,7 +19,7 @@ isfy&display=swap" rel="stylesheet">
         Quotable Quotes
     </div>
     </header><hr>
-
+    <!--JumboTron-->
     <div id="carouselExampleInterval" class="carousel slide img imgCenter" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active" data-interval="10000">
@@ -67,42 +67,65 @@ isfy&display=swap" rel="stylesheet">
         <span class="sr-only">Next</span>
       </a>
     </div><hr>
-    <!--start-->
+    <!--start forms-->
     <div class="center blue buttonPadding">
-        <button type="button" class="btn btn-outline-success">Random Quote</button>
+        <button type="button" class="btn btn-outline-success" name="randomQ">Random Quote</button>
     </div><hr>
-    <form class="center padding green">Quote from Category
+
+    <div class="container dText">
+      <?php 
+        try
+        {
+          $dbUrl = getenv('DATABASE_URL');
+          $dbOpts = parse_url($dbUrl);
+          $dbHost = $dbOpts["host"];
+          $dbPort = $dbOpts["port"];
+          $dbUser = $dbOpts["user"];
+          $dbPassword = $dbOpts["pass"];
+          $dbName = ltrim($dbOpts["path"],'/');
+          $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+          $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        }
+        catch (PDOException $ex)
+        {
+          echo 'Error!: ' . $ex->getMessage();
+          die();
+        }
+      ?>
+    </div>
+
+    <form class="center padding green" action="quotes.php" method="POST">Quote from Category
       <div class="form-group">
-        <select class="form-control" id="exampleFormControlSelect1">
+        <select class="form-control" id="exampleFormControlSelect1" name="dCat">
           <option>Humor</option>
           <option>Inspirational</option>
           <option>Religious</option>
           <option>Historical</option>
           <option>Educational</option>
         </select>
-        <button type="button" class="btn btn-outline-primary marginTop">List</button>
-        <button type="button" class="btn btn-outline-info marginTop">Random from Category</button>
+        <button class="btn btn-outline-primary marginTop" type="submit">List</button>
+        <button class="btn btn-outline-info marginTop" type="submit">Random from Category</button>
       </div>
     </form><hr>
 
-    <form class="padding center blue">
+    <form class="padding center blue" action="quotes.php" method="POST">
       <div class="form-group">
         <label for="exampleFormControlTextarea1" class="center">Submit a Quote</label><hr>
         <label for="exampleFormControlSelect1" class="center">Category</label>
-        <select class="form-control" id="exampleFormControlSelect1">
+        <select class="form-control" id="exampleFormControlSelect1" name="wCat">
           <option>Humor</option>
           <option>Inspirational</option>
           <option>Religious</option>
           <option>Historical</option>
           <option>Educational</option>
         </select>
-        <input class="form-control" type="text" placeholder="Quotee">
-        <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Quote" rows="3"></textarea>
-        <button type="button" class="btn btn-outline-secondary marginTop">Submit Quote</button>
+        <input class="form-control" type="text" placeholder="Quotee" name="quotee">
+        <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Quote" name="quote" rows="3"></textarea>
+        <button type="submit" class="btn btn-outline-secondary marginTop">Submit Quote</button>
       </div>
     </form>
 
-    <hr><!--end-->
+    <hr><!--end forms-->
     <!--footer-->
     <footer>
      
