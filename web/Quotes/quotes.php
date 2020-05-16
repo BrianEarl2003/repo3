@@ -74,16 +74,38 @@ isfy&display=swap" rel="stylesheet">
 
     <div class="container dText">
       <?php 
+        /*try
+        {
+          $user = 'postgres';
+          $password = 'password';
+          $db = new PDO('pgsql:host=localhost;dbname=myTestDB', $user, $password);
+        
+          // this line makes PDO give us an exception when there are problems,
+          // and can be very helpful in debugging! (But you would likely want
+          // to disable it for production environments.)
+          $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        }
+        catch (PDOException $ex)
+        {
+          echo 'Error!: ' . $ex->getMessage();
+          die();
+        }*/
         try
         {
-          $dbUrl = getenv('DATABASE_URL');
+          /*$dbUrl = getenv('DATABASE_URL');
           $dbOpts = parse_url($dbUrl);
           $dbHost = $dbOpts["host"];
           $dbPort = $dbOpts["port"];
           $dbUser = $dbOpts["user"];
           $dbPassword = $dbOpts["pass"];
-          $dbName = ltrim($dbOpts["path"],'/');
+          $dbName = ltrim($dbOpts["path"],'/');*/
+          $dbHost = "ec2-54-165-36-134.compute-1.amazonaws.com";
+          $dbPort = "5432";
+          $dbUser = "nkenanwarbirep";
+          $dbPassword = "cd2becc04630dcc13f1f4310d36e3774864a6a421aab745e9d33df86802be7ed";
+          $dbName = "d58kfk2hokphl6";
           $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+          //$db = new PDO("heroku pg:psql --app=obscure-reaches-78193");
           $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
         catch (PDOException $ex)
