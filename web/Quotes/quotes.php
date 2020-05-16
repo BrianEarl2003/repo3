@@ -101,15 +101,15 @@ isfy&display=swap" rel="stylesheet">
           echo 'Error!: ' . $ex->getMessage();
           die();
         }
-        foreach ($db->query('SELECT id, quotee, content FROM quote;') as $row)
-        {
+        $db->query('SELECT id, quotee, content FROM quote;');
+        
           if (isset($_POST['randomQ']) && rand(1,7) == $row['id']) {
           echo '' . $row['quotee'];
           echo '<br/>';
           echo '' . $row['content'];
           echo '<br/>';
           }
-        }
+        
         /*try
         {
           $dbHost = "ec2-54-165-36-134.compute-1.amazonaws.com";
