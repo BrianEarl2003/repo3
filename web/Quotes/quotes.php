@@ -74,12 +74,12 @@ isfy&display=swap" rel="stylesheet">
 
     <div class="container dText">
       <?php 
-        if (!defined('PDO::ATTR_DRIVER_NAME')) {
+        /*if (!defined('PDO::ATTR_DRIVER_NAME')) {
           echo 'PDO unavailable';
           }
           elseif (defined('PDO::ATTR_DRIVER_NAME')) {
           echo 'PDO available';
-          }
+          }*/
         try
         {
           $dbUrl = getenv('DATABASE_URL');
@@ -100,6 +100,12 @@ isfy&display=swap" rel="stylesheet">
         {
           echo 'Error!: ' . $ex->getMessage();
           die();
+        }
+        foreach ($db->query('SELECT category_name, content FROM category c JOIN quote q ON c.id=q.category_id;') as $row)
+        {
+          echo 'category_name: ' . $row['category_name'];
+          echo ' content: ' . $row['content'];
+          echo '<br/>';
         }
         /*try
         {
