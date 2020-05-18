@@ -132,7 +132,6 @@ isfy&display=swap" rel="stylesheet">
             echo '<br/>';
           }
         }
-        
       ?>
     </div><hr>
 
@@ -167,7 +166,7 @@ isfy&display=swap" rel="stylesheet">
         if (isset($_POST['dCat'])){
         $category = $_POST['dCat'];
         }
-        foreach($db->query("SELECT id, category_name, quotee, content FROM category c JOIN quote q ON c.id=q.category_id WHERE c.category_name=$category && q.id=$rand2") as $row)
+        foreach($db->query("SELECT id, category_name, quotee, content FROM category c JOIN quote q ON c.id=q.category_id WHERE c.category_name=$category AND q.id=$rand2") as $row)
         {
           if (isset($_POST['rCat']) && $row['category_name'] == $_POST['dCat']) {
             echo '' . $row['content'];
