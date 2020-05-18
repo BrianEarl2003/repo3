@@ -30,7 +30,7 @@ isfy&display=swap" rel="stylesheet">
           </div>
         </div>
         <div class="carousel-item" data-interval="2000">
-          <img src="https://www.lourdes.edu/wp-content/uploads/2018/05/xEleanor-Roosevelt.jpg.pagespeed.ic.lh5etb1YhH.webp" class="d-block w-100" alt="Eleanor Roosevelt">
+          <img src="xEleanor-Roosevelt.jpg.pagespeed.ic.lh5etb1YhH (2).jpg" class="d-block w-100" alt="Eleanor Roosevelt">
           <div class="carousel-caption d-md-block bold">
             <h5>Eleanor Roosevelt</h5>
             <p>No one can make you feel inferior without your consent.</p>
@@ -44,7 +44,7 @@ isfy&display=swap" rel="stylesheet">
           </div>
         </div>
         <div class="carousel-item" data-interval="2000">
-          <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/first-lady-michelle-obama-wayne-pascall.jpg" class="d-block w-100" alt="Michelle Obama">
+          <img src="first-lady-michelle-obama-wayne-pascall (2).jpg" class="d-block w-100" alt="Michelle Obama">
           <div class="carousel-caption d-md-block bold">
             <h5>Michelle Obama</h5>
             <p>When they go low, we go high.</p>
@@ -68,18 +68,29 @@ isfy&display=swap" rel="stylesheet">
       </a>
     </div><hr>
     <!--start forms-->
+    <form action="quotes.php" method="POST">
     <div class="center blue buttonPadding">
-        <button type="button" class="btn btn-outline-success" name="randomQ">Random Quote</button>
-    </div><hr>
+        <button type="submit" class="btn btn-outline-success" name="randomQ">Random Quote</button>
+    </div>
+    </form><hr>
 
     <div class="container dText">
       <?php 
-        /*if (!defined('PDO::ATTR_DRIVER_NAME')) {
-          echo 'PDO unavailable';
-          }
-          elseif (defined('PDO::ATTR_DRIVER_NAME')) {
-          echo 'PDO available';
-          }*/
+        /*try
+        {
+          $dbHost = "ec2-54-165-36-134.compute-1.amazonaws.com";
+          $dbPort = "5432";
+          $dbUser = "nkenanwarbirep";
+          $dbPassword = "cd2becc04630dcc13f1f4310d36e3774864a6a421aab745e9d33df86802be7ed";
+          $dbName = "d58kfk2hokphl6";
+          $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+          $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        }
+        catch (PDOException $ex)
+        {
+          echo 'Error!: ' . $ex->getMessage();
+          die();
+        }*/
         try
         {
           $dbUrl = getenv('DATABASE_URL');
@@ -101,32 +112,29 @@ isfy&display=swap" rel="stylesheet">
           echo 'Error!: ' . $ex->getMessage();
           die();
         }
-        $db->query('SELECT id, quotee, content FROM quote;');
-        
-          if (isset($_POST['randomQ']) && rand(1,7) == $db['id']) {
-          echo '' . $db['quotee'];
-          echo '<br/>';
-          echo '' . $db['content'];
-          echo '<br/>';
-          }
-        
-        /*try
-        {
-          $dbHost = "ec2-54-165-36-134.compute-1.amazonaws.com";
-          $dbPort = "5432";
-          $dbUser = "nkenanwarbirep";
-          $dbPassword = "cd2becc04630dcc13f1f4310d36e3774864a6a421aab745e9d33df86802be7ed";
-          $dbName = "d58kfk2hokphl6";
-          $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
-          $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        /*$insertEntry = $db->prepare("INSERT INTO public.excercise_log (excercise_name,excercise_explain,record_date,user_id)
+        VALUES(:excer_name,:excer_description,'$date', (SELECT user_id FROM public.user WHERE username = :username))");
+    
+        $insertEntry->bindValue(':excer_name', "$excer_name");
+        $insertEntry->bindValue(':excer_description', "$excer_description");
+        $insertEntry->bindValue(':username', $username);
+    
+        $insertEntry->execute();*/
+        foreach($db->query('SELECT COUNT(*) FROM quote') as $row) {
+        $random= rand(1, $row['count']);
         }
-        catch (PDOException $ex)
+        foreach($db->query("SELECT id, quotee, content FROM quote q WHERE q.id=$random") as $row)
         {
-          echo 'Error!: ' . $ex->getMessage();
-          die();
-        }*/
+          if (isset($_POST['randomQ'])) {
+            echo '' . $row['content'];
+            echo '<br/>';
+            echo '-' . $row['quotee'];
+            echo '<br/>';
+          }
+        }
+        
       ?>
-    </div>
+    </div><hr>
 
     <form class="center padding green" action="quotes.php" method="POST">Quote from Category
       <div class="form-group">
@@ -137,10 +145,39 @@ isfy&display=swap" rel="stylesheet">
           <option>Historical</option>
           <option>Educational</option>
         </select>
-        <button class="btn btn-outline-primary marginTop" type="submit">List</button>
-        <button class="btn btn-outline-info marginTop" type="submit">Random from Category</button>
+        <button class="btn btn-outline-primary marginTop" type="submit" name="list">List</button>
+        <button class="btn btn-outline-info marginTop" type="submit" name="rCat">Random from Category</button>
       </div>
     </form><hr>
+
+    <div>
+      <?php
+        foreach ($db->query('SELECT category_name, quotee, content FROM category c JOIN quote q ON c.id=q.category_id') as $row) 
+        {
+          if (isset($_POST['list']) && $row['category_name'] == $_POST['dCat']) {
+            echo '' . $row['content'];
+            echo '<br/>';
+            echo '-' . $row['quotee'];
+            echo '<br/><br/>';
+          }
+        }
+        foreach($db->query("SELECT COUNT(*) FROM category c JOIN quote q ON c.id=q.category_id WHERE c.category_name=$category") as $row){
+        $rand2= rand(1, $row['count']);
+        }
+        if (isset($_POST['dCat'])){
+        $category = $_POST['dCat'];
+        }
+        foreach($db->query("SELECT id, category_name, quotee, content FROM category c JOIN quote q ON c.id=q.category_id WHERE c.category_name=$category && q.id=$rand2") as $row)
+        {
+          if (isset($_POST['rCat']) && $row['category_name'] == $_POST['dCat']) {
+            echo '' . $row['content'];
+            echo '<br/>';
+            echo '-' . $row['quotee'];
+            echo '<br/><br/>';
+          }
+        }  
+      ?>
+    </div><hr>
 
     <form class="padding center blue" action="quotes.php" method="POST">
       <div class="form-group">
