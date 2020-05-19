@@ -76,13 +76,13 @@ isfy&display=swap" rel="stylesheet">
 
     <div class="container dText">
       <?php 
-        /*try
+        try
         {
-          $dbHost = "ec2-54-165-36-134.compute-1.amazonaws.com";
+          $dbHost = "ec2-52-20-248-222.compute-1.amazonaws.com";
           $dbPort = "5432";
-          $dbUser = "nkenanwarbirep";
-          $dbPassword = "cd2becc04630dcc13f1f4310d36e3774864a6a421aab745e9d33df86802be7ed";
-          $dbName = "d58kfk2hokphl6";
+          $dbUser = "erdpcvpqfbmrqq";
+          $dbPassword = "12c451b47dd20c063077806d576d9b73b319d400ced6235190899dd4c9097b7f";
+          $dbName = "d2hm98idujfmai";
           $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
           $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
@@ -90,8 +90,8 @@ isfy&display=swap" rel="stylesheet">
         {
           echo 'Error!: ' . $ex->getMessage();
           die();
-        }*/
-        try
+        }
+        /*try
         {
           $dbUrl = getenv('DATABASE_URL');
         
@@ -111,17 +111,9 @@ isfy&display=swap" rel="stylesheet">
         {
           echo 'Error!: ' . $ex->getMessage();
           die();
-        }
-        /*$insertEntry = $db->prepare("INSERT INTO public.excercise_log (excercise_name,excercise_explain,record_date,user_id)
-        VALUES(:excer_name,:excer_description,'$date', (SELECT user_id FROM public.user WHERE username = :username))");
-    
-        $insertEntry->bindValue(':excer_name', "$excer_name");
-        $insertEntry->bindValue(':excer_description', "$excer_description");
-        $insertEntry->bindValue(':username', $username);
-    
-        $insertEntry->execute();*/
+        }*/
         foreach($db->query('SELECT COUNT(*) FROM quote') as $row) {
-        $random= rand(1, $row['count']);
+          $random= rand(1, $row['count']);
         }
         foreach($db->query("SELECT id, quotee, content FROM quote q WHERE q.id=$random") as $row)
         {
@@ -160,21 +152,22 @@ isfy&display=swap" rel="stylesheet">
             echo '<br/><br/>';
           }
         }
-        foreach($db->query("SELECT COUNT(*) FROM category c JOIN quote q ON c.id=q.category_id WHERE c.category_name=$category") as $row){
-        $rand2= rand(1, $row['count']);
-        }
-        if (isset($_POST['dCat'])){
-        $category = $_POST['dCat'];
-        }
-        foreach($db->query("SELECT id, category_name, quotee, content FROM category c JOIN quote q ON c.id=q.category_id WHERE c.category_name=$category AND q.id=$rand2") as $row)
-        {
-          if (isset($_POST['rCat']) && $row['category_name'] == $_POST['dCat']) {
-            echo '' . $row['content'];
-            echo '<br/>';
-            echo '-' . $row['quotee'];
-            echo '<br/><br/>';
+        if (isset($_POST['rCat'])){
+          $category = $_POST['dCat'];
+        
+          foreach($db->query("SELECT COUNT(*) FROM category c JOIN quote q ON c.id=q.category_id WHERE c.category_name='$category'") as $row){
+            $rand2= rand(1, $row['count']);
           }
-        }  
+          foreach($db->query("SELECT q.category_quoteId, category_name, quotee, content FROM category c JOIN quote q ON c.id=q.category_id WHERE c.category_name='$category' AND q.category_quoteId=$rand2") as $row)
+          {
+            if (isset($_POST['rCat']) && $row['category_name'] == $_POST['dCat']) {
+              echo '' . $row['content'];
+              echo '<br/>';
+              echo '-' . $row['quotee'];
+              echo '<br/><br/>';
+            }
+          }
+        }
       ?>
     </div><hr>
 
@@ -194,12 +187,7 @@ isfy&display=swap" rel="stylesheet">
         <button type="submit" class="btn btn-outline-secondary marginTop">Submit Quote</button>
       </div>
     </form>
-
     <hr><!--end forms-->
-    <!--footer-->
-    <footer>
-     
-    </footer>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
