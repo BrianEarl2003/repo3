@@ -25,7 +25,7 @@ Insert INTO quote (category_id, category_quoteId, quotee, content) VALUES (1, 1,
 
 Insert INTO quote (category_id, category_quoteId, quotee, content) VALUES (2, 1, 'Henry Ford', 'Whether you think you can, or you think you can''t--you''re right.');
 Insert INTO quote (category_id, category_quoteId, quotee, content) VALUES (2, 2, 'Michelle Obama', 'When they go low, we go high.');
-Insert INTO quote (category_id, category_quoteId, quotee, content) VALUES (2, 3, 'Nathan Jay Firth', 'Anger and frustration is what fuels a fight. Love, understanding, and respect is what fuels a discussion');
+Insert INTO quote (category_id, category_quoteId, quotee, content) VALUES (2, 3, 'Nathan Jay Firth', 'Anger and frustration is what fuels a fight. Love, understanding, and respect is what fuels a discussion.');
 
 Insert INTO quote (category_id, category_quoteId, quotee, content) VALUES (3, 1, 'Nephi', 'And my father dwelt in a tent.');
 

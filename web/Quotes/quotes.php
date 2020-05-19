@@ -25,35 +25,35 @@ isfy&display=swap" rel="stylesheet">
         <div class="carousel-item active" data-interval="10000">
           <img src="Albert-Einstein (2).jpg" class="d-block w-100" alt="Albert Einstein">
           <div class="carousel-caption d-md-block bold">
-            <h5>Albert Einstein</h5>
+            <h5 class="h5font">Albert Einstein</h5>
             <p>The only thing that interferes with my learning is my education.</p>
           </div>
         </div>
         <div class="carousel-item" data-interval="2000">
           <img src="xEleanor-Roosevelt.jpg.pagespeed.ic.lh5etb1YhH (2).jpg" class="d-block w-100" alt="Eleanor Roosevelt">
           <div class="carousel-caption d-md-block bold">
-            <h5>Eleanor Roosevelt</h5>
+            <h5 class="h5font">Eleanor Roosevelt</h5>
             <p>No one can make you feel inferior without your consent.</p>
           </div>
         </div>
         <div class="carousel-item" data-interval="2000">
           <img src="LincolnAbraham300px (2).jpg" class="d-block w-100" alt="Abraham Lincoln">
           <div class="carousel-caption d-md-block bold">
-            <h5>Abraham Lincoln</h5>
+            <h5 class="h5font">Abraham Lincoln</h5>
             <p>The best way to get a bad law repealed is to enforce it strictly.</p>
           </div>
         </div>
         <div class="carousel-item" data-interval="2000">
           <img src="first-lady-michelle-obama-wayne-pascall (2).jpg" class="d-block w-100" alt="Michelle Obama">
           <div class="carousel-caption d-md-block bold">
-            <h5>Michelle Obama</h5>
+            <h5 class="h5font">Michelle Obama</h5>
             <p>When they go low, we go high.</p>
           </div>
         </div>
         <div class="carousel-item">
           <img src="Mark-Twain-400x565 (2).png" class="d-block w-100" alt="Mark Twain">
           <div class="carousel-caption d-md-block bold">
-            <h5>Mark Twain</h5>
+            <h5 class="h5font">Mark Twain</h5>
             <p>Get your facts first, then you can distort them as you please.</p>
           </div>
         </div>
