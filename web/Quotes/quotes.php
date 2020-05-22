@@ -76,7 +76,7 @@ isfy&display=swap" rel="stylesheet">
 
     <div class="container dText">
       <?php 
-        try
+        /*try
         {
           $dbHost = "ec2-52-20-248-222.compute-1.amazonaws.com";
           $dbPort = "5432";
@@ -90,8 +90,8 @@ isfy&display=swap" rel="stylesheet">
         {
           echo 'Error!: ' . $ex->getMessage();
           die();
-        }
-        /*try
+        }*/
+        try
         {
           $dbUrl = getenv('DATABASE_URL');
         
@@ -111,7 +111,7 @@ isfy&display=swap" rel="stylesheet">
         {
           echo 'Error!: ' . $ex->getMessage();
           die();
-        }*/
+        }
         foreach($db->query('SELECT COUNT(*) FROM quote') as $row) {
           $random= rand(1, $row['count']);
         }
