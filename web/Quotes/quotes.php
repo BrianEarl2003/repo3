@@ -29,21 +29,21 @@ isfy&display=swap" rel="stylesheet">
             <h5 class="h5font">-Albert Einstein</h5>
           </div>
         </div>
-        <div class="carousel-item" data-interval="2000">
+        <div class="carousel-item" data-interval="4000">
           <img src="xEleanor-Roosevelt.jpg.pagespeed.ic.lh5etb1YhH (2).jpg" class="d-block w-100" alt="Eleanor Roosevelt">
           <div class="carousel-caption d-md-block bold">
             <p>No one can make you feel inferior without your consent.</p>
             <h5 class="h5font">-Eleanor Roosevelt</h5>
           </div>
         </div>
-        <div class="carousel-item" data-interval="2000">
+        <div class="carousel-item" data-interval="4000">
           <img src="LincolnAbraham300px (2).jpg" class="d-block w-100" alt="Abraham Lincoln">
           <div class="carousel-caption d-md-block bold">
             <p>The best way to get a bad law repealed is to enforce it strictly.</p>
             <h5 class="h5font">-Abraham Lincoln</h5>
           </div>
         </div>
-        <div class="carousel-item" data-interval="2000">
+        <div class="carousel-item" data-interval="4000">
           <img src="first-lady-michelle-obama-wayne-pascall (2).jpg" class="d-block w-100" alt="Michelle Obama">
           <div class="carousel-caption d-md-block bold">
             <p>When they go low, we go high.</p>
@@ -86,11 +86,11 @@ isfy&display=swap" rel="stylesheet">
             echo '' . $row['content'];
             echo '<br/>';
             echo '-' . $row['quotee'];
-            echo '<br/>';
+            echo '<hr>';
           }
         }
       ?>
-    </div><hr>
+    </div>
 
     <form class="center padding green" action="quotes.php" method="POST">Quote from Category
       <div class="form-group">
@@ -114,7 +114,7 @@ isfy&display=swap" rel="stylesheet">
             echo '' . $row['content'];
             echo '<br/>';
             echo '-' . $row['quotee'];
-            echo '<br/><br/>';
+            echo '<hr>';
           }
         }
         if (isset($_POST['rCat'])){
@@ -129,16 +129,18 @@ isfy&display=swap" rel="stylesheet">
               echo '' . $row['content'];
               echo '<br/>';
               echo '-' . $row['quotee'];
-              echo '<br/><br/>';
+              echo '<hr>';
             }
           }
         }
       ?>
-    </div><hr>
+    </div>
 
     <form class="padding center blue" action="quotes.php" method="POST">
       <div class="form-group">
         <label for="exampleFormControlTextarea1" class="center">Submit a Quote</label><hr>
+        <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Quote" name="quote" rows="3"></textarea>
+        <input class="form-control" type="text" placeholder="Quotee" name="quotee">
         <label for="exampleFormControlSelect1" class="center">Category</label>
         <select class="form-control" id="exampleFormControlSelect1" name="wCat">
           <option>Humor</option>
@@ -147,12 +149,44 @@ isfy&display=swap" rel="stylesheet">
           <option>Historical</option>
           <option>Educational</option>
         </select>
-        <input class="form-control" type="text" placeholder="Quotee" name="quotee">
-        <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Quote" name="quote" rows="3"></textarea>
-        <button type="submit" class="btn btn-outline-secondary marginTop">Submit Quote</button>
+        <button type="submit" class="btn btn-outline-secondary marginTop" name="wQuote">Submit Quote</button>
       </div>
     </form>
-    <hr><!--end forms-->
+
+    <div>
+      <?php
+        if (isset($_POST['wQuote'])){
+          if ($_POST['wCat'] == 'Humor')
+            $wCat = 1;
+          if ($_POST['wCat'] == 'Inspirational')
+            $wCat = 2;
+          if ($_POST['wCat'] == 'Religious')
+            $wCat = 3;
+          if ($_POST['wCat'] == 'Historical')
+            $wCat = 4;
+          if ($_POST['wCat'] == 'Educational')
+            $wCat = 5;
+          $wCategory = $_POST['wCat'];
+          foreach($db->query("SELECT COUNT(*) FROM category c JOIN quote q ON c.id=q.category_id WHERE c.category_name='$wCategory'") as $row){
+            $cqId = $row['count'] + 1;
+          }  
+          $quotee = htmlspecialchars($_POST['quotee']);
+          $quote = htmlspecialchars($_POST['quote']);
+
+          $stmt = $db->prepare('INSERT INTO quote (category_id, category_quoteId, quotee, content) VALUES (:category_id, :category_quoteId, :quotee, :content);');
+          $stmt->bindValue(':category_id', $wCat, PDO::PARAM_INT);
+          $stmt->bindValue(':category_quoteId', $cqId, PDO::PARAM_INT);
+          $stmt->bindValue(':quotee', $quotee, PDO::PARAM_STR);
+          $stmt->bindValue(':content', $quote, PDO::PARAM_STR);
+          $stmt->execute();
+
+          echo '<hr>' . $quote . '<br>';
+          echo '-' . $quotee . '<br>';
+          echo 'was submitted to the ' . $wCategory . ' category.<hr>';
+        }
+      ?>
+    </div>
+    <!--end forms-->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

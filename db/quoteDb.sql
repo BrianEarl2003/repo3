@@ -21,7 +21,7 @@ INSERT INTO category (category_name) VALUES ('Historical');
 INSERT INTO category (category_name) VALUES ('Educational');
 
 Insert INTO quote (category_id, category_quoteId, quotee, content) VALUES (1, 1, 'Mark Twain', 'Get your facts first, then you can distort them as you please.');
-
+Insert INTO quote (category_id, category_quoteId, quotee, content) VALUES (1, 2, 'Emo Philips', 'A computer once beat me at chess, but it was no match for me at kick boxing.');
 
 Insert INTO quote (category_id, category_quoteId, quotee, content) VALUES (2, 1, 'Henry Ford', 'Whether you think you can, or you think you can''t--you''re right.');
 Insert INTO quote (category_id, category_quoteId, quotee, content) VALUES (2, 2, 'Michelle Obama', 'When they go low, we go high.');
