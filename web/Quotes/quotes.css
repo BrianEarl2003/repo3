@@ -55,6 +55,16 @@
     margin-right: auto;
 }
 
+.boldContent {
+    font-size: 16px;
+    font-weight: bold;
+    color: orange;
+    text-shadow: -1px 1px 0 #000, 
+                 1px 1px 0 #000, 
+                 1px -1px 0 #000, 
+                 -1px -1px 0 #000; 
+}
+
 .boldOrange {
     font-size: 16px;
     font-weight: bold;
@@ -68,7 +78,7 @@
 .boldWhite {
     font-size: 16px;
     font-weight: bold;
-    color: white;
+    color: red;
     text-shadow: -1px 1px 0 #000, 
                  1px 1px 0 #000, 
                  1px -1px 0 #000, 
@@ -92,7 +102,7 @@
     .h5font{
         font-size: 10px;
     }
-    .boldOrange {
+    .boldContent {
         font-size: 10px;
         font-weight: bold;
         color: orange;
