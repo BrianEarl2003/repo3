@@ -24,35 +24,35 @@ isfy&display=swap" rel="stylesheet">
       <div class="carousel-inner">
         <div class="carousel-item active" data-interval="10000">
           <img src="Albert-Einstein (2).jpg" class="d-block w-100" alt="Albert Einstein">
-          <div class="carousel-caption d-md-block bold">
+          <div class="carousel-caption d-md-block boldOrange">
             <p>The only thing that interferes with my learning is my education.</p>
             <h5 class="h5font">-Albert Einstein</h5>
           </div>
         </div>
         <div class="carousel-item" data-interval="4000">
           <img src="xEleanor-Roosevelt.jpg.pagespeed.ic.lh5etb1YhH (2).jpg" class="d-block w-100" alt="Eleanor Roosevelt">
-          <div class="carousel-caption d-md-block bold">
+          <div class="carousel-caption d-md-block boldOrange">
             <p>No one can make you feel inferior without your consent.</p>
             <h5 class="h5font">-Eleanor Roosevelt</h5>
           </div>
         </div>
         <div class="carousel-item" data-interval="4000">
           <img src="LincolnAbraham300px (2).jpg" class="d-block w-100" alt="Abraham Lincoln">
-          <div class="carousel-caption d-md-block bold">
+          <div class="carousel-caption d-md-block boldOrange">
             <p>The best way to get a bad law repealed is to enforce it strictly.</p>
             <h5 class="h5font">-Abraham Lincoln</h5>
           </div>
         </div>
         <div class="carousel-item" data-interval="4000">
           <img src="first-lady-michelle-obama-wayne-pascall (2).jpg" class="d-block w-100" alt="Michelle Obama">
-          <div class="carousel-caption d-md-block bold">
+          <div class="carousel-caption d-md-block boldOrange">
             <p>When they go low, we go high.</p>
             <h5 class="h5font">-Michelle Obama</h5>
           </div>
         </div>
         <div class="carousel-item">
           <img src="Mark-Twain-400x565 (2).png" class="d-block w-100" alt="Mark Twain">
-          <div class="carousel-caption d-md-block bold">
+          <div class="carousel-caption d-md-block boldOrange">
             <p>Get your facts first, then you can distort them as you please.</p>
             <h5 class="h5font">-Mark Twain</h5>
           </div>
@@ -70,11 +70,11 @@ isfy&display=swap" rel="stylesheet">
     <!--start forms-->
     <form action="quotes.php" method="POST">
     <div class="center blue buttonPadding">
-        <button type="submit" class="btn btn-outline-success" name="randomQ">Random Quote</button>
+        <button type="submit" class="btn btn-outline-success bold" name="randomQ">Random Quote</button>
     </div>
     </form><hr>
 
-    <div class="container dText">
+    <div class="container dText blue boldWhite">
       <?php 
         require_once('DBconnect.php');
         foreach($db->query('SELECT COUNT(*) FROM quote') as $row) {
@@ -92,7 +92,7 @@ isfy&display=swap" rel="stylesheet">
       ?>
     </div>
 
-    <form class="center padding green" action="quotes.php" method="POST">Quote from Category
+    <form class="center padding green boldOrange" action="quotes.php" method="POST">Quote from Category
       <div class="form-group">
         <select class="form-control" id="exampleFormControlSelect1" name="dCat">
           <option>Humor</option>
@@ -101,12 +101,12 @@ isfy&display=swap" rel="stylesheet">
           <option>Historical</option>
           <option>Educational</option>
         </select>
-        <button class="btn btn-outline-primary marginTop" type="submit" name="list">List</button>
-        <button class="btn btn-outline-info marginTop" type="submit" name="rCat">Random from Category</button>
+        <button class="btn btn-outline-primary marginTop bold" type="submit" name="list">List</button>
+        <button class="btn btn-outline-info marginTop bold" type="submit" name="rCat">Random from Category</button>
       </div>
     </form><hr>
 
-    <div>
+    <div class="container dText green boldWhite">
       <?php
         foreach ($db->query('SELECT category_name, quotee, content FROM category c JOIN quote q ON c.id=q.category_id') as $row) 
         {
@@ -138,10 +138,10 @@ isfy&display=swap" rel="stylesheet">
 
     <form class="padding center blue" action="quotes.php" method="POST">
       <div class="form-group">
-        <label for="exampleFormControlTextarea1" class="center">Submit a Quote</label><hr>
+        <label for="exampleFormControlTextarea1" class="center boldOrange">Submit a Quote</label><hr>
         <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Quote" name="quote" rows="3"></textarea>
         <input class="form-control" type="text" placeholder="Quotee" name="quotee">
-        <label for="exampleFormControlSelect1" class="center">Category</label>
+        <label for="exampleFormControlSelect1" class="center boldOrange">Category</label>
         <select class="form-control" id="exampleFormControlSelect1" name="wCat">
           <option>Humor</option>
           <option>Inspirational</option>
@@ -149,11 +149,11 @@ isfy&display=swap" rel="stylesheet">
           <option>Historical</option>
           <option>Educational</option>
         </select>
-        <button type="submit" class="btn btn-outline-secondary marginTop" name="wQuote">Submit Quote</button>
+        <button type="submit" class="btn btn-outline-secondary marginTop bold" name="wQuote">Submit Quote</button>
       </div>
     </form>
 
-    <div>
+    <div class="container dText blue boldWhite">
       <?php
         if (isset($_POST['wQuote'])){
           if ($_POST['wCat'] == 'Humor')
@@ -182,7 +182,7 @@ isfy&display=swap" rel="stylesheet">
 
           echo '<hr>' . $quote . '<br>';
           echo '-' . $quotee . '<br>';
-          echo 'was submitted to the ' . $wCategory . ' category.<hr>';
+          echo 'Submitted to the ' . $wCategory . ' category.<hr>';
         }
       ?>
     </div>
