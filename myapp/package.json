@@ -1,0 +1,14 @@
+{
+  "name": "myapp",
+  "version": "1.0.0",
+  "description": "testing/learning",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Brian Earl",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
