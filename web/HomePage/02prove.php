@@ -27,15 +27,15 @@
       echo(date("m-d-Y g:i:s a (e)",$t));
     ?></div>
     <form id="caption">
-    <input type="button" value="Log In">
-      <label>Search for and submit up to five cards</label><br>
+    <input type="button" value="Log In"><br>
+      <h2>Search for and submit up to five cards</h2><br>
       Card Search<input type="text"><input type="button" value="Search"><br>
       Card 1<input type="text"><br>
       Card 2<input type="text"><br>
       Card 3<input type="text"><br>
       Card 4<input type="text"><br>
       Card 5<input type="text"><br>
-      <textarea>Explanation</textarea><br>
+      <textarea placeholder="Explanation"></textarea><br>
       <input type="submit" value="Submit Combo">
     </form>
     <h1 id="header1">Combos Page</h1>
