@@ -14,7 +14,7 @@
     <header>
       <div id="header">
         <img id="WMlogo" src="https://i.pinimg.com/originals/68/df/3d/68df3d7f7fe51cb099b3874a53599191.png">
-        <h1 id="slogan">Brian's Homepage</h1>
+        <h1 id="slogan">MTG COMBO CHAOS</h1>
         <img id="WMlogo" src="https://logodix.com/logo/2086275.png" alt="WM Logo">
       </div>
       <ul id="menuBar">
@@ -28,7 +28,7 @@
     ?></div>
     <form id="caption">
     <input type="button" value="Log In"><br>
-      <h2>Search for and submit up to five cards</h2><br>
+      <h2 id="header1">Search for and submit up to five cards</h2><br>
       Card Search<input type="text"><input type="button" value="Search"><br>
       Card 1<input type="text"><br>
       Card 2<input type="text"><br>
