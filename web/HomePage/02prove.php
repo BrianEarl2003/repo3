@@ -26,7 +26,7 @@
       $t=time();
       echo(date("m-d-Y g:i:s a (e)",$t));
     ?></div>
-    <form>
+    <form id="caption">
     <input type="button" value="Log In">
       <label>Search for and submit up to five cards</label><br>
       Card Search<input type="text"><input type="button" value="Search"><br>
