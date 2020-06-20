@@ -35,6 +35,7 @@
       Card 3<input type="text"><br>
       Card 4<input type="text"><br>
       Card 5<input type="text"><br>
+      Explanation<input type="textarea"><br>
       <input type="submit" value="Submit Combo">
     </form>
     <h1 id="header1">Combos Page</h1>
